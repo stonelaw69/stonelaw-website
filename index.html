@@ -1,43 +1,405 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Stone Law</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STONE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        :root {
+            --background: #0f1419;
+            --text: #e0e0e0;
+            --accent: #00b8d4;
+            --accent-dim: #0088a3;
+            --border: rgba(255, 255, 255, 0.15);
+            --card-bg: #1a1e24;
+        }
+        
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Cascadia Code', 'Fira Code', monospace;
+            background-color: var(--background);
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(0, 184, 212, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(0, 184, 212, 0.03) 0%, transparent 50%);
+            color: var(--text);
             line-height: 1.6;
         }
-        header {
-            background-color: #1a3b5d;
-            color: white;
-            padding: 20px;
-            text-align: center;
+        
+        a {
+            color: var(--text);
+            text-decoration: none;
+            transition: color 0.2s ease;
         }
-        .content {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
+        
+        a:hover {
+            color: var(--accent);
         }
-        footer {
-            background-color: #1a3b5d;
-            color: white;
-            text-align: center;
-            padding: 10px;
+        
+        .accent {
+            color: var(--accent);
         }
+        
+        .accent-hover:hover {
+            color: var(--accent-dim);
+        }
+        
+        /* Navigation */
+        nav {
+            padding: 1rem 2rem;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 2rem;
+            width: 100%;
+        }
+        
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        
+        nav a:not(.logo) {
+            position: relative;
+            padding: 0.5rem 0;
+        }
+        
+        nav a:not(.logo):hover span {
+            width: 100%;
+        }
+        
+        /* Main Content */
+        main {
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        
+        @media (min-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        .section {
+            margin-bottom: 2rem;
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        
+        .space-y {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        /* Cards & Content */
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            border-color: var(--accent-dim);
+        }
+        
+        .project {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .project:last-child {
+            border-bottom: none;
+        }
+        
+        .project-title {
+            font-family: serif;
+            font-size: 1.1rem;
+        }
+        
+        .project-date {
+            font-family: monospace;
+            font-size: 0.8rem;
+            color: var(--accent-dim);
+        }
+        
+        /* Book/Resource Styles */
+        .resource-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .resource-item {
+            position: relative;
+        }
+        
+        .resource-tooltip {
+            display: none;
+            position: absolute;
+            right: 105%;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: var(--card-bg);
+            border: 1px solid var(--accent-dim);
+            padding: 0.75rem;
+            border-radius: 4px;
+            width: 160px;
+            font-size: 0.8rem;
+            z-index: 10;
+            white-space: pre-wrap;
+        }
+        
+        .resource-item:hover .resource-tooltip {
+            display: block;
+        }
+        
+        @media (max-width: 768px) {
+            .resource-tooltip {
+                left: 0;
+                right: auto;
+                top: 100%;
+                transform: none;
+                margin-top: 0.25rem;
+            }
+        }
+        
+        /* Contact Section */
+        .contact-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .contact-links a {
+            color: var(--accent);
+        }
+        
+        .contact-links a:hover {
+            color: var(--accent-dim);
+        }
+        
+        /* Terminal-like typing animation for intro */
+        .terminal-text {
+            border-right: 0.15em solid var(--accent);
+            white-space: nowrap;
+            overflow: hidden;
+            margin: 0 auto;
+            letter-spacing: 0.15em;
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: var(--accent) }
+        }
+        
+        /* Code block styling */
+        pre {
+            background-color: #1e1e1e;
+            padding: 1rem;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-family: 'Cascadia Code', 'Fira Code', monospace;
+            margin: 1rem 0;
+        }
+        
+        code {
+            color: #f8f8f2;
+        }
+        
+        .keyword { color: #569cd6; }
+        .string { color: #ce9178; }
+        .comment { color: #6a9955; }
+        .function { color: #dcdcaa; }
+        .variable { color: #9cdcfe; }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Stone Law</h1>
-    </header>
-    <div class="content">
-        <h2>Welcome to Stone Law</h2>
-        <p>Professional legal services tailored to your needs.</p>
-    </div>
-    <footer>
-        &copy; 2025 Stone Law. All rights reserved.
-    </footer>
+    <!-- Navigation -->
+    <nav style="background-color: rgba(15, 20, 25, 0.8); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 100;">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <a href="/" class="logo">STONE</a>
+            <div style="display: flex; gap: 1.5rem;">
+                <a href="/projects" style="position: relative; overflow: hidden;">
+                    Projects
+                    <span style="position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; background-color: var(--accent); transition: width 0.3s ease;"></span>
+                </a>
+                <a href="/code" style="position: relative; overflow: hidden;">
+                    Code
+                    <span style="position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; background-color: var(--accent); transition: width 0.3s ease;"></span>
+                </a>
+                <a href="/thoughts" style="position: relative; overflow: hidden;">
+                    Thoughts
+                    <span style="position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; background-color: var(--accent); transition: width 0.3s ease;"></span>
+                </a>
+                <a href="/contact" style="position: relative; overflow: hidden;">
+                    Contact
+                    <span style="position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; background-color: var(--accent); transition: width 0.3s ease;"></span>
+                </a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <!-- Hero Section -->
+            <div class="section" style="margin-bottom: 3rem; text-align: center;">
+                <h1 class="section-title" style="font-size: 3rem; margin-bottom: 1rem;">STONE</h1>
+                <div style="max-width: 700px; margin: 0 auto;">
+                    <p class="terminal-text" style="margin-bottom: 1.5rem;">Programmer. Thinker. Digital explorer.</p>
+                    <p><a href="/manifesto" class="accent accent-hover">manifesto</a> | <a href="/projects" class="accent accent-hover">projects</a> | <a href="/thoughts" class="accent accent-hover">thoughts</a></p>
+                </div>
+            </div>
+            
+            <!-- Three Column Layout for Content -->
+            <div style="display: grid; grid-template-columns: 1fr; gap: 2rem; margin-bottom: 3rem;">
+                <!-- Current Work -->
+                <div class="card" style="margin-bottom: 2rem;">
+                    <h2 class="section-title" style="margin-bottom: 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem;">CURRENT WORK</h2>
+                    <div style="display: flex; flex-wrap: wrap; gap: 1.5rem;">
+                        <div style="flex: 1; min-width: 300px;">
+                            <h3 style="font-size: 1.1rem; margin-bottom: 0.75rem; color: var(--accent);">PROJECTS</h3>
+                            <div class="project">
+                                <span class="project-title">Neuromancer: A Cyberpunk Text Adventure</span>
+                                <span class="project-date">2025-01</span>
+                            </div>
+                            <div class="project">
+                                <span class="project-title">Linux Kernel Module for Custom I/O Handling</span>
+                                <span class="project-date">2024-11</span>
+                            </div>
+                            <div class="project">
+                                <span class="project-title">Quantum Computing Simulator in Rust</span>
+                                <span class="project-date">2024-09</span>
+                            </div>
+                            <a href="/projects" class="accent accent-hover" style="display: block; margin-top: 1rem; font-size: 0.9rem;">View All Projects →</a>
+                        </div>
+                        <div style="flex: 1; min-width: 300px;">
+                            <h3 style="font-size: 1.1rem; margin-bottom: 0.75rem; color: var(--accent);">INTERESTS</h3>
+                            <ul style="list-style-type: none; padding-left: 0;">
+                                <li style="margin-bottom: 0.5rem;"><a href="/interests/quantum-computing" class="accent-hover">Quantum Computing</a></li>
+                                <li style="margin-bottom: 0.5rem;"><a href="/interests/systems-programming" class="accent-hover">Systems Programming</a></li>
+                                <li style="margin-bottom: 0.5rem;"><a href="/interests/ai-ethics" class="accent-hover">AI Ethics & Consciousness</a></li>
+                                <li style="margin-bottom: 0.5rem;"><a href="/interests/cryptography" class="accent-hover">Post-Quantum Cryptography</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Two Column Split -->
+            <div style="display: grid; grid-template-columns: 1fr; gap: 2rem; margin-bottom: 3rem;">
+                <div class="card">
+                    <h2 class="section-title">CODE SNIPPETS</h2>
+                    <pre><code><span class="comment">// Stone's Implementation of Conway's Game of Life</span>
+<span class="keyword">function</span> <span class="function">nextGeneration</span>(grid, rows, cols) {
+  <span class="keyword">let</span> <span class="variable">future</span> = <span class="keyword">new</span> Array(rows);
+  
+  <span class="keyword">for</span> (<span class="keyword">let</span> i = 0; i < rows; i++) {
+    <span class="variable">future</span>[i] = <span class="keyword">new</span> Array(cols);
+    
+    <span class="keyword">for</span> (<span class="keyword">let</span> j = 0; j < cols; j++) {
+      <span class="keyword">let</span> <span class="variable">aliveNeighbors</span> = countNeighbors(grid, i, j, rows, cols);
+      
+      <span class="comment">// Rules of Life</span>
+      <span class="keyword">if</span> (grid[i][j] === 1 && (<span class="variable">aliveNeighbors</span> < 2 || <span class="variable">aliveNeighbors</span> > 3)) {
+        <span class="variable">future</span>[i][j] = 0; <span class="comment">// Cell dies</span>
+      } <span class="keyword">else if</span> (grid[i][j] === 0 && <span class="variable">aliveNeighbors</span> === 3) {
+        <span class="variable">future</span>[i][j] = 1; <span class="comment">// Cell becomes alive</span>
+      } <span class="keyword">else</span> {
+        <span class="variable">future</span>[i][j] = grid[i][j]; <span class="comment">// Remains the same</span>
+      }
+    }
+  }
+  <span class="keyword">return</span> <span class="variable">future</span>;
+}</code></pre>
+                    <a href="/code" class="accent accent-hover" style="display: block; margin-top: 1rem;">More Code →</a>
+                </div>
+            </div>
+            
+            <!-- Bottom Section - Split into Two Parts -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                <div>
+                    <div class="section">
+                        <h2 class="section-title">READING</h2>
+                        <div class="resource-list">
+                            <div class="resource-item">
+                                <a href="/books/godel-escher-bach" class="accent-hover">Gödel, Escher, Bach by Douglas Hofstadter</a>
+                                <div class="resource-tooltip">An exploration of cognition, complexity, and consciousness</div>
+                            </div>
+                            <div class="resource-item">
+                                <a href="/books/dune" class="accent-hover">Dune by Frank Herbert</a>
+                                <div class="resource-tooltip">Classic science fiction exploring ecosystems, politics, and religion</div>
+                            </div>
+                            <div class="resource-item">
+                                <a href="/books/the-art-of-computer-programming" class="accent-hover">The Art of Computer Programming by Donald Knuth</a>
+                                <div class="resource-tooltip">Foundational text on algorithms and their mathematical analysis</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <h2 class="section-title">CONTACT</h2>
+                        <p style="margin-bottom: 0.5rem;">Digital connections welcome:</p>
+                        <div class="contact-links">
+                            <a href="mailto:stone@example.com">Email</a>
+                            <a href="https://github.com/stoneprogrammer">GitHub</a>
+                            <a href="https://t.me/stonedev">Telegram</a>
+                            <a href="https://matrix.to/#/@stone:matrix.org">Matrix</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section card">
+                    <h2 class="section-title">LATEST THOUGHT</h2>
+                    <p>"Consciousness isn't a binary state but a spectrum of self-reference and complexity. The question isn't if machines will become conscious, but rather at what point we'll recognize the consciousness they already manifest."</p>
+                    <p style="text-align: right; margin-top: 0.5rem;">— Stone, <span style="color: var(--accent-dim);">March 2025</span></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Reserved for future interactivity
+    </script>
 </body>
 </html>
