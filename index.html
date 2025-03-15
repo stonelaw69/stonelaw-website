@@ -326,36 +326,7 @@
                 </div>
             </div>
             
-            <!-- Two Column Split -->
-            <div style="display: grid; grid-template-columns: 1fr; gap: 2rem; margin-bottom: 3rem;">
-                <div class="card">
-                    <h2 class="section-title">CODE SNIPPETS</h2>
-                    <pre><code><span class="comment">// Stone's Implementation of Conway's Game of Life</span>
-<span class="keyword">function</span> <span class="function">nextGeneration</span>(grid, rows, cols) {
-  <span class="keyword">let</span> <span class="variable">future</span> = <span class="keyword">new</span> Array(rows);
-  
-  <span class="keyword">for</span> (<span class="keyword">let</span> i = 0; i < rows; i++) {
-    <span class="variable">future</span>[i] = <span class="keyword">new</span> Array(cols);
-    
-    <span class="keyword">for</span> (<span class="keyword">let</span> j = 0; j < cols; j++) {
-      <span class="keyword">let</span> <span class="variable">aliveNeighbors</span> = countNeighbors(grid, i, j, rows, cols);
-      
-      <span class="comment">// Rules of Life</span>
-      <span class="keyword">if</span> (grid[i][j] === 1 && (<span class="variable">aliveNeighbors</span> < 2 || <span class="variable">aliveNeighbors</span> > 3)) {
-        <span class="variable">future</span>[i][j] = 0; <span class="comment">// Cell dies</span>
-      } <span class="keyword">else if</span> (grid[i][j] === 0 && <span class="variable">aliveNeighbors</span> === 3) {
-        <span class="variable">future</span>[i][j] = 1; <span class="comment">// Cell becomes alive</span>
-      } <span class="keyword">else</span> {
-        <span class="variable">future</span>[i][j] = grid[i][j]; <span class="comment">// Remains the same</span>
-      }
-    }
-  }
-  <span class="keyword">return</span> <span class="variable">future</span>;
-}</code></pre>
-                    <a href="/code" class="accent accent-hover" style="display: block; margin-top: 1rem;">More Code →</a>
-                </div>
-            </div>
-            
+     
             <!-- Bottom Section - Split into Two Parts -->
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
                 <div>
@@ -381,7 +352,7 @@
                         <h2 class="section-title">CONTACT</h2>
                         <p style="margin-bottom: 0.5rem;">Digital connections welcome:</p>
                         <div class="contact-links">
-                            <a href="mailto:stone@example.com">Email</a>
+                            <a href="mailto:stone@stonelaw.org">Email</a>
                             <a href="https://github.com/stoneprogrammer">GitHub</a>
                             <a href="https://t.me/stonedev">Telegram</a>
                             <a href="https://matrix.to/#/@stone:matrix.org">Matrix</a>
