@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thoughts | STONE</title>
+    <title>Contact | STONE</title>
     <style>
         :root {
             --accent: #1DA1F2;
@@ -12,6 +12,8 @@
             --secondary-text: #8899A6;
             --card-bg: #192734;
             --border: #38444D;
+            --input-bg: #253341;
+            --placeholder: #8899A6;
         }
 
         * {
@@ -98,38 +100,134 @@
             font-size: 1.1rem;
         }
 
-        .thoughts-grid {
+        .contact-container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
-        .thought-card {
+        .contact-info {
+            padding: 2rem;
             background-color: var(--card-bg);
             border-radius: 8px;
             border: 1px solid var(--border);
-            padding: 1.5rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .thought-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        .contact-info h2 {
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
         }
 
-        .thought-date {
+        .contact-method {
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-method h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--accent);
+        }
+
+        .contact-method p {
             color: var(--secondary-text);
+        }
+
+        .social-links {
+            margin-top: 2rem;
+        }
+
+        .social-links h3 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--input-bg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: var(--text);
+            transition: background-color 0.3s;
+        }
+
+        .social-icon:hover {
+            background-color: var(--accent);
+        }
+
+        .contact-form {
+            padding: 2rem;
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .contact-form h2 {
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
             font-size: 0.9rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .thought-title {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .thought-excerpt {
             color: var(--secondary-text);
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: var(--input-bg);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            color: var(--text);
+            font-family: 'Cascadia Code', 'Fira Code', monospace;
+            font-size: 0.9rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .form-input::placeholder {
+            color: var(--placeholder);
+        }
+
+        textarea.form-input {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-button {
+            background-color: var(--accent);
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-family: 'Cascadia Code', 'Fira Code', monospace;
+        }
+
+        .submit-button:hover {
+            background-color: #1991db;
         }
 
         /* Footer Styles */
@@ -142,7 +240,7 @@
         }
 
         @media (max-width: 768px) {
-            .thoughts-grid {
+            .contact-container {
                 grid-template-columns: 1fr;
             }
         }
@@ -156,10 +254,6 @@
             <div style="display: flex; gap: 1.5rem;">
                 <a href="projects.html">
                     Projects
-                    <span></span>
-                </a>
-                <a href="code.html">
-                    Code
                     <span></span>
                 </a>
                 <a href="thoughts.html">
@@ -177,55 +271,30 @@
     <!-- Main Content -->
     <main class="container">
         <div class="page-header">
-            <h1>Thoughts</h1>
-            <p>Ideas, reflections, and insights</p>
+            <h1>Contact</h1>
+            <p>Let's connect and build something together</p>
         </div>
 
-        <div class="thoughts-grid">
-            <!-- Thought Card 1 -->
-            <div class="thought-card">
-                <div class="thought-date">March 10, 2025</div>
-                <h2 class="thought-title">The Future of Web Development</h2>
-                <p class="thought-excerpt">Exploring how AI tools are transforming the workflow of modern web developers and what skills will remain essential in the coming years.</p>
+        <div class="contact-container" style="display: block; max-width: 600px;">
+            <div class="contact-info" style="width: 100%;">
+                <h2>Get in Touch</h2>
+                
+                <div class="contact-method">
+                    <h3>Email</h3>
+                    <p>stone@stonelaw.org</p>
+                </div>
+                
+                <div class="social-links">
+                    <h3>Connect</h3>
+                    <div class="social-icons">
+                        <a href="https://twitter.com/stoned_law" class="social-icon" title="Twitter">TW</a>
+                    </div>
+                </div>
             </div>
+            
 
-            <!-- Thought Card 2 -->
-            <div class="thought-card">
-                <div class="thought-date">February 28, 2025</div>
-                <h2 class="thought-title">Minimalism in UI Design</h2>
-                <p class="thought-excerpt">Why less continues to be more in user interface design, and how to create impactful experiences with fewer elements.</p>
-            </div>
-
-            <!-- Thought Card 3 -->
-            <div class="thought-card">
-                <div class="thought-date">February 15, 2025</div>
-                <h2 class="thought-title">The Rise of Web Components</h2>
-                <p class="thought-excerpt">How native web components are finally coming into their own and changing how we build for the modern web.</p>
-            </div>
-
-            <!-- Thought Card 4 -->
-            <div class="thought-card">
-                <div class="thought-date">January 25, 2025</div>
-                <h2 class="thought-title">Building for Performance First</h2>
-                <p class="thought-excerpt">Why performance should be a primary consideration from day one, not an afterthought in web development.</p>
-            </div>
-
-            <!-- Thought Card 5 -->
-            <div class="thought-card">
-                <div class="thought-date">January 12, 2025</div>
-                <h2 class="thought-title">Learning to Code in 2025</h2>
-                <p class="thought-excerpt">A reflection on how the learning path for new developers has evolved and what resources are most valuable today.</p>
-            </div>
-
-            <!-- Thought Card 6 -->
-            <div class="thought-card">
-                <div class="thought-date">December 30, 2024</div>
-                <h2 class="thought-title">The Return of Server-Side Rendering</h2>
-                <p class="thought-excerpt">How frameworks are bringing back server-side rendering with modern improvements for better user experiences.</p>
-            </div>
         </div>
     </main>
 
-   
 </body>
 </html>
