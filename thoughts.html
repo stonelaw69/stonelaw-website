@@ -1,1 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thoughts | STONE</title>
+    <style>
+        :root {
+            --accent: #1DA1F2;
+            --background: #15202B;
+            --text: #FFFFFF;
+            --secondary-text: #8899A6;
+            --card-bg: #192734;
+            --border: #38444D;
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Navigation Styles */
+        nav {
+            background-color: rgba(15, 20, 25, 0.8);
+            backdrop-filter: blur(8px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 1rem 0;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        nav a {
+            color: var(--text);
+            text-decoration: none;
+            padding: 0.5rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        nav a span {
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover span {
+            width: 100%;
+        }
+
+        /* Main Content Styles */
+        main {
+            padding: 2rem 0;
+        }
+
+        .page-header {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-header p {
+            color: var(--secondary-text);
+            font-size: 1.1rem;
+        }
+
+        .thoughts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .thought-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .thought-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .thought-date {
+            color: var(--secondary-text);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .thought-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .thought-excerpt {
+            color: var(--secondary-text);
+            margin-bottom: 1rem;
+        }
+
+        .read-more {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .read-more:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer Styles */
+        footer {
+            margin-top: 4rem;
+            padding: 2rem 0;
+            border-top: 1px solid var(--border);
+            color: var(--secondary-text);
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .thoughts-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="/" class="logo">STONE</a>
+            <div style="display: flex; gap: 1.5rem;">
+                <a href="/projects">
+                    Projects
+                    <span></span>
+                </a>
+                <a href="/code">
+                    Code
+                    <span></span>
+                </a>
+                <a href="/thoughts">
+                    Thoughts
+                    <span></span>
+                </a>
+                <a href="/contact">
+                    Contact
+                    <span></span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container">
+        <div class="page-header">
+            <h1>Thoughts</h1>
+            <p>Ideas, reflections, and insights on technology and development</p>
+        </div>
+
+        <div class="thoughts-grid">
+            <!-- Thought Card 1 -->
+            <div class="thought-card">
+                <div class="thought-date">March 10, 2025</div>
+                <h2 class="thought-title">The Future of Web Development</h2>
+                <p class="thought-excerpt">Exploring how AI tools are transforming the workflow of modern web developers and what skills will remain essential in the coming years.</p>
+                <a href="/thoughts/future-web-development" class="read-more">Read more →</a>
+            </div>
+
+            <!-- Thought Card 2 -->
+            <div class="thought-card">
+                <div class="thought-date">February 28, 2025</div>
+                <h2 class="thought-title">Minimalism in UI Design</h2>
+                <p class="thought-excerpt">Why less continues to be more in user interface design, and how to create impactful experiences with fewer elements.</p>
+                <a href="/thoughts/minimalism-ui-design" class="read-more">Read more →</a>
+            </div>
+
+            <!-- Thought Card 3 -->
+            <div class="thought-card">
+                <div class="thought-date">February 15, 2025</div>
+                <h2 class="thought-title">The Rise of Web Components</h2>
+                <p class="thought-excerpt">How native web components are finally coming into their own and changing how we build for the modern web.</p>
+                <a href="/thoughts/web-components" class="read-more">Read more →</a>
+            </div>
+
+            <!-- Thought Card 4 -->
+            <div class="thought-card">
+                <div class="thought-date">January 25, 2025</div>
+                <h2 class="thought-title">Building for Performance First</h2>
+                <p class="thought-excerpt">Why performance should be a primary consideration from day one, not an afterthought in web development.</p>
+                <a href="/thoughts/performance-first" class="read-more">Read more →</a>
+            </div>
+
+            <!-- Thought Card 5 -->
+            <div class="thought-card">
+                <div class="thought-date">January 12, 2025</div>
+                <h2 class="thought-title">Learning to Code in 2025</h2>
+                <p class="thought-excerpt">A reflection on how the learning path for new developers has evolved and what resources are most valuable today.</p>
+                <a href="/thoughts/learning-code-2025" class="read-more">Read more →</a>
+            </div>
+
+            <!-- Thought Card 6 -->
+            <div class="thought-card">
+                <div class="thought-date">December 30, 2024</div>
+                <h2 class="thought-title">The Return of Server-Side Rendering</h2>
+                <p class="thought-excerpt">How frameworks are bringing back server-side rendering with modern improvements for better user experiences.</p>
+                <a href="/thoughts/server-side-rendering" class="read-more">Read more →</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="container">
+        <p>© 2025 STONE. All rights reserved.</p>
+    </footer>
+</body>
+</html>
