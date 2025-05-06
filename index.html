@@ -1,1 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .form-section {
+            margin-bottom: 30px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        textarea {
+            height: 100px;
+            resize: vertical;
+        }
+        .submit-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#personal">Personal Info</a></li>
+                <li><a href="#professional">Professional Info</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section id="personal" class="form-section">
+            <h2>Personal Information</h2>
+            <form>
+                <input type="text" placeholder="Name">
+                <input type="text" placeholder="Location">
+                <textarea placeholder="Brief introduction..."></textarea>
+            </form>
+        </section>
 
+        <section id="professional" class="form-section">
+            <h2>Professional Information</h2>
+            <form>
+                <input type="text" placeholder="Job Title">
+                <input type="text" placeholder="Company">
+                <textarea placeholder="Professional background..."></textarea>
+                <input type="text" placeholder="Skill 1">
+                <input type="text" placeholder="Skill 2">
+                <input type="text" placeholder="Skill 3">
+            </form>
+        </section>
+
+        <section id="contact" class="form-section">
+            <h2>Contact Information</h2>
+            <form>
+                <input type="email" placeholder="Email Address">
+                <input type="text" placeholder="Social Media 1">
+                <input type="text" placeholder="Social Media 2">
+                <input type="text" placeholder="Social Media 3">
+                <button type="submit" class="submit-btn">Submi
