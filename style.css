@@ -7,11 +7,13 @@ h1 {
   color: #ff0000;
 }
 
-h2, h3, h4 {
+h2, h4 {
   font-size: 24px;
-  color: #ff0000; /* Red */
 }
 
+h3 {
+  font-size:18px;
+}
 .bottom-corner {
   position: absolute;
   bottom: 20px;
