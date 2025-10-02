@@ -2,12 +2,12 @@ body {
   font-family: 'Times New Roman', Times, serif;
 }
 
-h1 {
+h1, h2, h3, h4 {
+  font-size: 24px;
   color: #ff0000; /* Red */
-  padding-bottom: 10px;
-  border-bottom: 2px solid #ff0000;
 }
 
-p {
-  font-size: 18px;
+.bottom-corner {
+  position: absolute;
+  bottom: 20px;
 }
